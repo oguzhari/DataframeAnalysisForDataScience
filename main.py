@@ -133,3 +133,24 @@ def num_summary(df, numerical_col, plot=False):
             plt.xlabel(col)
             plt.title(col)
             plt.show(block=True)
+
+
+def check_df(df, head=5):
+    print("##### Shape #####")
+    print(df.shape)
+    print("\n########### Types ###########")
+    print(df.dtypes)
+    print("\n################################ Head ################################")
+    print(df.head(head))
+    print("\n################################ Tail ################################")
+    print(df.tail(head))
+    print("\n######### NA #########")
+    print(df.isnull().sum())
+    print("\n################################ Quantiles ################################")
+    print(df.describe([0, 0.05, 0.50, 0.95, 0.99, 1]).T)
+
+
+# Run
+num_cols, cat_cols, car_cols = grab_col_names(dataframe)
+check_df(dataframe)
+
